@@ -50,7 +50,7 @@ Icons are implemented using a canvas.
 - [ ] Edge
 
 ## Roadmap
-This features will be implemented on request.
+These features will be implemented on request.
 - [x] Native refresh rate
 - [x] CSS transformed icon
 - [ ] CSS transformed background
