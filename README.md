@@ -44,9 +44,9 @@ Icons are implemented using a canvas.
 
 ## Tested browsers
 - [x] Chrome
-- [ ] Firefox
+- [x] Firefox
 - [ ] Safari
-- [ ] Opera
+- [x] Opera
 - [ ] Edge
 
 ## Roadmap
