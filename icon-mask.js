@@ -61,13 +61,19 @@ class IconMasker {
         let ctx = canvas.getContext("2d");
         let iconBounds = canvas.getBoundingClientRect();
 
+        // Canvas pixel size might not match CSS size
+        let scaleX = canvas.width / canvas.offsetWidth;
+        let scaleY = canvas.height / canvas.offsetHeight;
+
         ctx.globalCompositeOperation = "source-over";
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         let transform = new DOMMatrix(window.getComputedStyle(canvas).transform);
-        let reversTransform = this.reverseMatrix(transform);
+        transform = this.reverseMatrix(transform);
+        transform.a *= scaleX;
+        transform.d *= scaleY;
 
-        ctx.setTransform(reversTransform);
+        ctx.setTransform(transform);
 
         this.backgrounds.forEach(background => {
             let fillBounds = background.getBoundingClientRect();
@@ -79,7 +85,7 @@ class IconMasker {
             ctx.fillRect(x, y, fillBounds.width, fillBounds.height);
         });
 
-        ctx.resetTransform();
+        ctx.setTransform(scaleX, 0, 0, scaleY, 0, 0);
 
         ctx.globalCompositeOperation = "destination-in";
         ctx.drawImage(mask, 0, 0);
