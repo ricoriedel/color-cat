@@ -52,7 +52,11 @@ class IconMasker {
     /* [INTERNAL] Paints all icons. */
     paintAll() {
         for (let i = 0; i < this.icons.length; i++) {
-            this.paint(this.icons[i], this.masks[i]);
+            let mask = this.masks[i];
+
+            if (mask.complete) {
+                this.paint(this.icons[i], mask);
+            }
         }
     }
 
