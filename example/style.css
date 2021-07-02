@@ -11,27 +11,26 @@ html, body {
 }
 .view-box > * { position: absolute; }
 
+.b1, .b4 {background: #FFF;}
+.b2, .b3 {background: #000;}
+
 .b {
     width: 50%;
     height: 50%;
 }
 .b1 {
-    background: #FFF;
     left: 0;
     top: 0;
 }
 .b2 {
-    background: #ccc;
     left: 50%;
     top: 0;
 }
 .b3 {
-    background: #444;
     left: 0;
     top: 50%;
 }
 .b4 {
-    background: #000;
     left: 50%;
     top: 50%;
 }

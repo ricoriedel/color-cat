@@ -1,46 +1,45 @@
-# Icon Mask
-Dynamically change the color of icons on your website.
+# Color Cat JS
+Change the color of icons while scrolling.
 
-This small JavaScript library allows you to change the color of icons when a user scrolls above a certain section of your webpage.
+This small library adjusts the color of an icon depending on the background.
+Make your icon bright on a dark background and dark on a bright background.
 
 ## Live demo
-An example is located in the <code>example</code> directory.
-Simply clone this project and open the HTML file.
+The example directory contains a working demo.
+Make sure to clone the whole project as the demo links directly to the root folder.
 
 ## How to use
-### Link the library
 Copy the JavaScript file onto your server.
 A compressed version can be found in the release section.
-```
-<script src="https://www.example.com/icon-mask.js"></script>
-```
-
-You will have to execute a small payload once your Website is ready.
-This can be done by linking the auto script or by executing the payload your self.
-
-**Auto script**
-```
-<script src="https://www.example.com/icon-mask-auto.js"></script>
-```
-**Payload**
-```
-let masker = new IconMasker();
-masker.discover(); // <-- Execute this method every time your website changes.
-masker.start();
+```html
+<script src="https://www.example.com/color-cat.js"></script>
 ```
 
-### Add your icon
-Icons are implemented using a canvas.
-```
-<canvas width="64" height="64" data-icon="icon.svg"></canvas>
+Create a canvas element for the icon.
+Note that the width and height does not need to match the onscreen size.
+```html
+<canvas class="icon" id="icon" width="128" height="128"></canvas>
 ```
 
-### Add backgrounds
+Afterwards, you can configure the colorizer.
+```javascript
+// Load the actual icon
+let img = new Image();
+img.src = "icon.svg";
+
+// Get all required HTML nodes
+let icon = document.getElementById("icon");
+let yellowNodes = document.getElementsByClassName("yellow");
+let blueNodes = document.getElementsByClassName("blue");
+
+// Configure and start the colorizer
+let colorizer = new Colorizer();
+colorizer.addIcon(icon, img);
+colorizer.addBackgrounds(yellowNodes, "#fde956");
+colorizer.addBackgrounds(blueNodes, "#30ace4");
+colorizer.start();
 ```
-<div data-icon-fill="red"></div>
-<div data-icon-fill="#00FF00"></div>
-<div data-icon-fill="#00F"></div>
-```
+
 
 ## Tested browsers
 - [x] Chrome
