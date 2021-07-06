@@ -44,7 +44,7 @@ colorizer.start();
 ## Tested browsers
 - [x] Chrome
 - [x] Firefox
-- [ ] Safari
+- [x] Safari
 - [x] Opera
 - [ ] Edge
 
@@ -53,4 +53,3 @@ These features will be implemented on request.
 - [x] Native refresh rate
 - [x] CSS transformed icon
 - [ ] CSS transformed background
-- [ ] Background z-index
