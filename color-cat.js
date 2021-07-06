@@ -107,11 +107,11 @@ class Colorizer {
             ctx.fillRect(x, y, fillBounds.width, fillBounds.height);
         });
 
-        ctx.setTransform(iconScaleX, 0, 0, iconScaleY, 0, 0);
+        ctx.resetTransform();
 
         // Clip image
         ctx.globalCompositeOperation = "destination-in";
-        ctx.drawImage(img, 0, 0);
+        ctx.drawImage(img, 0, 0, icon.width, icon.height);
         ctx.globalCompositeOperation = "source-over";
     }
 
