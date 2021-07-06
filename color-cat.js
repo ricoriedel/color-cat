@@ -14,7 +14,9 @@ class Colorizer {
 
     // Adds multiple icons with the same image.
     addIcons(icons, img) {
-        icons.forEach(c => this.addIcon(c, img));
+        for (let icon of icons) {
+            this.addIcon(icon, img);
+        }
     }
 
     // Clears the list of icons.
